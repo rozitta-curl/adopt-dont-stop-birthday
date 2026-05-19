@@ -10,7 +10,7 @@ const STATS = [
 
 export default function StatsSection() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="stats">
       {/* Garland lights at top of section */}
       <div className={styles.garlandWrapper}>
         <Image
@@ -18,7 +18,15 @@ export default function StatsSection() {
           alt=""
           width={480}
           height={100}
-          className={styles.garlandImage}
+          className={`${styles.garlandImage} ${styles.garlandMobile}`}
+          aria-hidden="true"
+        />
+        <Image
+          src="/assets/Garland-with-lights-desktop.svg"
+          alt=""
+          width={1440}
+          height={120}
+          className={`${styles.garlandImage} ${styles.garlandDesktop}`}
           aria-hidden="true"
         />
       </div>
@@ -30,21 +38,22 @@ export default function StatsSection() {
         {/* Heading */}
         <h2 className={styles.heading}>Що нам вдалось?</h2>
 
-        {/* Colored stat grid */}
-        <div className={styles.grid}>
-          {STATS.map((stat) => (
-            <div key={stat.number} className={`${styles.statItem} ${stat.colorClass}`}>
-              <div className={styles.statNumber}>{stat.number}</div>
-              <div className={styles.statLabel}>{stat.label}</div>
-            </div>
-          ))}
-        </div>
+        {/* Colored stat grid + highlight — side by side on desktop */}
+        <div className={styles.statsRow}>
+          <div className={styles.grid}>
+            {STATS.map((stat) => (
+              <div key={stat.number} className={`${styles.statItem} ${stat.colorClass}`}>
+                <div className={styles.statNumber}>{stat.number}</div>
+                <div className={styles.statLabel}>{stat.label}</div>
+              </div>
+            ))}
+          </div>
 
-        {/* Highlight block */}
-        <div className={styles.highlight}>
-          <div className={styles.highlightText}>Жодного разу</div>
-          <div className={styles.highlightSub}>
-            не здались, хоча іноді дуже хотілось.
+          <div className={styles.highlight}>
+            <div className={styles.highlightText}>Жодного разу</div>
+            <div className={styles.highlightSub}>
+              не здались, хоча іноді дуже хотілось.
+            </div>
           </div>
         </div>
       </div>

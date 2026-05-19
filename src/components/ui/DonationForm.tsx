@@ -1,13 +1,31 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import styles from "@/styles/ui/donation-form.module.css";
 
+const TELEGRAM_LINK = "https://t.me/adopt_hello";
+
+const WISHLIST = [
+  "Вологий корм (паштети Gourme / Mau Paw)",
+  "Іграшки (м'ячики, вудочки, пір'їнки)",
+  "Лежанки, дряпки, котобудиночки",
+  "Фонтанчик питний",
+  "Залізні миски для їжі",
+  "Паста Мальтсофт (для виведення шерсті)",
+];
+
 const PRESET_AMOUNTS = [100, 200, 500, 1000, 2000];
 
-export default function DonationForm() {
-  const [tab, setTab] = useState<"money" | "items">("money");
+interface Props {
+  tab: "money" | "items";
+}
+
+export default function DonationForm({ tab }: Props) {
+  const router = useRouter();
+  const [paymentType, setPaymentType] = useState<"monthly" | "once">("monthly");
   const [selectedAmount, setSelectedAmount] = useState<number | null>(200);
   const [customAmount, setCustomAmount] = useState("");
   const [email, setEmail] = useState("");
@@ -43,25 +61,27 @@ export default function DonationForm() {
         throw new Error(data.error ?? "Помилка при створенні платежу.");
       }
 
-      const { data, signature, checkoutUrl } = await res.json();
+      // const { data, signature, checkoutUrl } = await res.json();
 
-      const form = document.createElement("form");
-      form.method = "POST";
-      form.action = checkoutUrl;
-      form.style.display = "none";
+      // const form = document.createElement("form");
+      // form.method = "POST";
+      // form.action = checkoutUrl;
+      // form.style.display = "none";
 
-      const dataInput = document.createElement("input");
-      dataInput.name = "data";
-      dataInput.value = data;
-      form.appendChild(dataInput);
+      // const dataInput = document.createElement("input");
+      // dataInput.name = "data";
+      // dataInput.value = data;
+      // form.appendChild(dataInput);
 
-      const sigInput = document.createElement("input");
-      sigInput.name = "signature";
-      sigInput.value = signature;
-      form.appendChild(sigInput);
+      // const sigInput = document.createElement("input");
+      // sigInput.name = "signature";
+      // sigInput.value = signature;
+      // form.appendChild(sigInput);
 
-      document.body.appendChild(form);
-      form.submit();
+      // document.body.appendChild(form);
+      // form.submit();
+
+      router.push("/thank-you");
     } catch (err) {
       setError(
         err instanceof Error ? err.message : "Щось пішло не так. Спробуйте пізніше."
@@ -72,26 +92,38 @@ export default function DonationForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
-      {/* Tab switcher */}
-      <div className={styles.tabs}>
-        <button
-          type="button"
-          className={`${styles.tab} ${tab === "money" ? styles.tabActive : ""}`}
-          onClick={() => setTab("money")}
-        >
-          Донат
-        </button>
-        <button
-          type="button"
-          className={`${styles.tab} ${tab === "items" ? styles.tabActive : ""}`}
-          onClick={() => setTab("items")}
-        >
-          Речі
-        </button>
-      </div>
-
       {tab === "money" && (
         <>
+          {/* Inner sub-tabs: Щомісяця / Разово */}
+          <div className={styles.tabs}>
+            <button
+              type="button"
+              className={`${styles.tab} ${paymentType === "monthly" ? styles.tabActive : ""}`}
+              onClick={() => setPaymentType("monthly")}
+            >
+              Щомісяця
+            </button>
+            <button
+              type="button"
+              className={`${styles.tab} ${paymentType === "once" ? styles.tabActive : ""}`}
+              onClick={() => setPaymentType("once")}
+            >
+              Разово
+            </button>
+          </div>
+
+          {/* Info block — only for monthly */}
+          {paymentType === "monthly" && (
+            <div className={styles.infoBlock}>
+              <p>
+                <span className={styles.infoBlockBold}>Чому щомісяця?</span>{" "}
+                Регулярна підтримка дає нам стабільність – ми можемо планувати
+                лікування, корм і ремонт наперед. Навіть 100 ₴ на місяць — це
+                вже впевненість.
+              </p>
+            </div>
+          )}
+
           {/* Preset amounts — 3 then 2 */}
           <div className={styles.amountsGrid3}>
             {PRESET_AMOUNTS.slice(0, 3).map((v) => (
@@ -125,8 +157,9 @@ export default function DonationForm() {
           {/* Custom amount */}
           <input
             className={`${styles.pillInput} ${customAmount ? styles.pillInputSelected : ""}`}
-            type="number"
-            min="1"
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
             placeholder="Інша сума"
             value={customAmount}
             onChange={(e) => { setCustomAmount(e.target.value); setSelectedAmount(null); }}
@@ -153,8 +186,45 @@ export default function DonationForm() {
       )}
 
       {tab === "items" && (
-        <div className={styles.itemsPlaceholder}>
-          <p>Вішліст речей з'явиться тут — слідкуйте за оновленнями!</p>
+        <div className={styles.itemsTab}>
+          {/* Wishlist */}
+          <ul className={styles.wishlist}>
+            {WISHLIST.map((item, i) => (
+              <li key={i} className={styles.wishlistItem}>
+                <Image
+                  src="/assets/bullet-dot.svg"
+                  alt=""
+                  width={12}
+                  height={12}
+                  className={styles.bulletDot}
+                  aria-hidden="true"
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Delivery card */}
+          <div className={styles.deliveryCard}>
+            <div className={styles.deliveryOption}>
+              <div className={styles.deliveryTitle}>Привезти</div>
+              <div className={styles.deliveryDetail}>м. Київ, вул. Амосова 9</div>
+              <div className={styles.deliveryDetail}>Пн–Нд: 12.00–16.00</div>
+            </div>
+            <div className={styles.deliveryDivider} />
+            <div className={styles.deliveryOption}>
+              <div className={styles.deliveryTitle}>Передати поштою</div>
+              <div className={styles.deliveryDetail}>НП 129, м. Київ</div>
+              <div className={styles.deliveryDetail}>+38 (063) 194-68-59</div>
+              <div className={styles.deliveryDetail}>Микитенко Альона</div>
+            </div>
+          </div>
+
+          <div className={styles.submitWrapper}>
+            <Button variant="primary" href={TELEGRAM_LINK} target="_blank" rel="noopener noreferrer">
+              Повідомити, що передам
+            </Button>
+          </div>
         </div>
       )}
     </form>

@@ -12,11 +12,22 @@ const ANIMALS = [
   { id: 8, name: "Зефір", age: "5 місяців" },
   { id: 9, name: "Марся", age: "2 роки" },
   { id: 10, name: "Сіра", age: "3 роки" },
+  { id: 11, name: "Сіра2", age: "3 роки" },
+  { id: 12, name: "Сіра3", age: "3 роки" },
+  { id: 13, name: "Сіра4", age: "3 роки" },
+  { id: 14, name: "Сіра5", age: "3 роки" },
+  { id: 15, name: "Сіра6", age: "3 роки" },
+  { id: 16, name: "Сіра6", age: "3 роки" },
+  { id: 17, name: "Сіра6", age: "3 роки" },
+  { id: 18, name: "Сіра6", age: "3 роки" },
+  { id: 19, name: "Сіра6", age: "3 роки" },
+  { id: 20, name: "Сіра6", age: "3 роки" },
+  { id: 21, name: "Сіра6", age: "3 роки" },
 ];
 
 export default function AnimalsSection() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="animals">
       <div className={styles.header}>
         <div className={styles.badge}>Наші випускники</div>
         <h2 className={styles.heading}>Заради кого ми тут</h2>
@@ -31,7 +42,15 @@ export default function AnimalsSection() {
           alt=""
           width={480}
           height={60}
-          className={styles.garlandImage}
+          className={`${styles.garlandImage} ${styles.garlandMobile}`}
+          aria-hidden="true"
+        />
+        <Image
+          src="/assets/Garland-hearts-desktop.svg"
+          alt=""
+          width={1440}
+          height={80}
+          className={`${styles.garlandImage} ${styles.garlandDesktop}`}
           aria-hidden="true"
         />
       </div>

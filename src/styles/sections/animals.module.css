@@ -54,6 +54,20 @@
   display: block;
 }
 
+.garlandDesktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .garlandMobile {
+    display: none;
+  }
+
+  .garlandDesktop {
+    display: block;
+  }
+}
+
 .scrollArea {
   padding: 20px var(--section-px) var(--section-py);
   scroll-padding-left: var(--section-px);
@@ -61,7 +75,7 @@
 }
 
 .card {
-  width: 160px;
+  width: 260px;
   border-radius: var(--border-radius);
   overflow: hidden;
   flex-shrink: 0;
@@ -69,11 +83,42 @@
 
 .photoWrapper {
   position: relative;
-  width: 160px;
-  height: 200px;
+  width: 260px;
+  height: 300px;
 }
 
 .photo {
   object-fit: cover;
   border-radius: var(--border-radius);
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 52px;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 60px;
+    align-items: start;
+    padding-bottom: 0;
+  }
+
+  .badge {
+    grid-column: 1 / -1;
+  }
+
+  .subtext {
+    margin-bottom: 0;
+  }
+
+  .card {
+    width: 400px;
+  }
+
+  .photoWrapper {
+    width: 400px;
+    height: 440px;
+  }
 }

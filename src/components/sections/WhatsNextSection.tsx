@@ -33,7 +33,7 @@ const CARDS = [
 
 export default function WhatsNextSection() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="whats-next">
       <div className={styles.badge}>Наші плани</div>
       <h2 className={styles.heading}>Що далі?</h2>
       <p className={styles.subtext}>

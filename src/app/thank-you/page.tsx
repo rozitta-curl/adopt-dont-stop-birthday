@@ -1,18 +1,6 @@
-/**
- * Thank You page — shown after successful Liqpay payment.
- *
- * Liqpay redirects here via the `result_url` parameter set in create-payment.
- * Query params from Liqpay: order_id, amount, status, etc.
- * (Full list: https://www.liqpay.ua/documentation/api/checkout)
- *
- * TODO:
- * - Add real content and design when ready.
- * - Read `order_id` from searchParams to display a reference.
- * - Optionally trigger client-side confetti or animations.
- */
-
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
+import NavBar from "@/components/sections/NavBar";
 import styles from "@/styles/pages/thank-you.module.css";
 
 export const metadata: Metadata = {
@@ -20,87 +8,46 @@ export const metadata: Metadata = {
   description: "Ваш донат отримано. Дякуємо за підтримку!",
 };
 
-interface ThankYouPageProps {
-  searchParams: Promise<{ order_id?: string; amount?: string; status?: string }>;
-}
-
-export default async function ThankYouPage({ searchParams }: ThankYouPageProps) {
-  const params = await searchParams;
-  const orderId = params.order_id;
-  const status = params.status;
-  const isSuccess = !status || status === "success";
-
+export default function ThankYouPage() {
   return (
-    <main className={styles.page}>
-      <div className={styles.icon}>{isSuccess ? "💛" : "😔"}</div>
+    <>
+      <NavBar />
+      <main className={styles.page}>
+        <section className={styles.yellowSection}>
+          <h1 className={styles.heading}>Дякую за подарунок!</h1>
 
-      <h1 className={styles.heading}>
-        {isSuccess ? "Дякуємо за підтримку!" : "Щось пішло не так"}
-      </h1>
+          <div className={styles.catHeartWrapper}>
+            <Image
+              src="/assets/Thank-you.svg"
+              alt="Кіт у серці"
+              width={320}
+              height={300}
+              className={styles.catHeart}
+            />
+          </div>
 
-      <p className={styles.subtext}>
-        {isSuccess
-          ? "Ваш донат отримано. Ми дуже цінуємо кожну гривню, яку ви довіряєте нам. Разом ми продовжуємо рятувати тварин!"
-          : "Платіж не було завершено. Спробуйте ще раз або зверніться до нас."}
-      </p>
+          <div className={styles.infoCard}>
+            <h2 className={styles.infoTitle}>Світ змінюється. Твоя доброта&nbsp;– ні.</h2>
+            <p className={styles.infoText}>
+              Дякуємо, що допомагаєш притулку впевнено зустріти наше 7-річчя. Ти щойно зробив те, що насправді не має ціни — подарував іншому живому створінню день, повний любові та турботи.
+            </p>
+            <p className={styles.infoText}>
+              Поки на твою пошту летить особливий лист із твоїм персональним «Дзеркалом доброти», поділися цією миттю з іншими. Твій приклад може стати для когось світлом, яке зараз так потрібно.
+            </p>
+          </div>
+        </section>
 
-      {orderId && (
-        <p className={styles.orderId}>Номер замовлення: {orderId}</p>
-      )}
-
-      {isSuccess && (
-        <div className={styles.divider} />
-      )}
-
-      {isSuccess && (
-        <p className={styles.emailNote}>
-          На вашу пошту надійде підтвердження про отримання донату.
-        </p>
-      )}
-
-      <div className={styles.actions}>
-        <Link
-          href="/"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
-            padding: "16px 24px",
-            borderRadius: "100px",
-            backgroundColor: "var(--color-yellow)",
-            color: "var(--color-navy)",
-            fontFamily: "var(--font-heading)",
-            fontWeight: 700,
-            fontSize: "15px",
-            textDecoration: "none",
-          }}
-        >
-          На головну
-        </Link>
-
-        {!isSuccess && (
-          <Link
-            href="/#donation"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "100%",
-              padding: "16px 24px",
-              borderRadius: "100px",
-              border: "2px solid rgba(18,18,42,0.2)",
-              color: "var(--color-navy)",
-              fontFamily: "var(--font-heading)",
-              fontWeight: 700,
-              fontSize: "15px",
-              textDecoration: "none",
-            }}
-          >
-            Спробувати знову
-          </Link>
-        )}
-      </div>
-    </main>
+        <footer className={styles.footer}>
+          <Image
+            src="/assets/Small-heart.svg"
+            alt=""
+            width={48}
+            height={44}
+            aria-hidden="true"
+          />
+          <p className={styles.footerText}>Дякуємо, що ви з нами</p>
+        </footer>
+      </main>
+    </>
   );
 }

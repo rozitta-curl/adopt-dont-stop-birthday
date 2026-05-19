@@ -15,6 +15,20 @@
   display: block;
 }
 
+.garlandDesktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .garlandMobile {
+    display: none;
+  }
+
+  .garlandDesktop {
+    display: block;
+  }
+}
+
 .inner {
   padding: 0 var(--section-px) 12px;
 }
@@ -107,4 +121,52 @@
   font-size: 14px;
   color: var(--color-yellow);
   line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 48px;
+  }
+
+  .statsRow {
+    display: grid;
+    grid-template-columns: 1fr 560px;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .grid {
+    margin-bottom: 0;
+    gap: 16px;
+  }
+
+  .statItem {
+    height: 160px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+  }
+
+  .statNumber {
+    font-size: 56px;
+    margin-bottom: 8px;
+  }
+
+  .statLabel {
+    font-size: 16px;
+  }
+
+  .highlight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+  }
+
+  .highlightText {
+    font-size: 52px;
+    white-space: nowrap;
+  }
 }

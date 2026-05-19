@@ -1,6 +1,46 @@
 .section {
   background-color: var(--color-light-black);
-  padding: 24px var(--section-px);
+  padding: 0 var(--section-px) 24px;
+}
+
+/* Full-width outer tabs bar */
+.outerTabsBar {
+  display: flex;
+  margin: 0 calc(-1 * var(--section-px)) 24px;
+  background-color: #484848;
+}
+
+.outerTab {
+  flex: 1;
+  padding: 20px 16px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.outerTabActive {
+  background: var(--color-light-black);
+  color: var(--color-yellow);
+  position: relative;
+  z-index: 1;
+}
+
+.outerTab:first-child {
+  border-top-right-radius: 16px;
+}
+
+.outerTab:last-child {
+  border-top-left-radius: 16px;
+}
+
+.outerTabInactive {
+  background: #484848;
+  color: #A39538;
 }
 
 /* Badge */
@@ -33,4 +73,29 @@
   color: var(--color-yellow);
   line-height: 1.6;
   margin-bottom: 28px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    padding: 0 var(--section-px) 48px;
+  }
+
+  .outerTabsBar {
+    grid-column: 1 / -1;
+    margin-bottom: 48px;
+  }
+
+  .heading {
+    font-size: 56px;
+    line-height: 1.0;
+  }
+
+  .leftContent {
+    position: sticky;
+    top: 80px;
+  }
 }

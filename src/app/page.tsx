@@ -1,6 +1,6 @@
 import NavBar from "@/components/sections/NavBar";
 import HeroSection from "@/components/sections/HeroSection";
-import StoriesSection from "@/components/sections/StoriesSection";
+import FloatingDonateButton from "@/components/ui/FloatingDonateButton";
 import StatsSection from "@/components/sections/StatsSection";
 import TimelineSection from "@/components/sections/TimelineSection";
 import AnimalsSection from "@/components/sections/AnimalsSection";
@@ -13,11 +13,9 @@ export default function HomePage() {
   return (
     <>
       <NavBar />
+      <FloatingDonateButton />
       <main>
-        <div style={{ backgroundColor: "var(--color-yellow)" }}>
-          <HeroSection />
-          <StoriesSection />
-        </div>
+        <HeroSection />
         <StatsSection />
         <TimelineSection />
         <AnimalsSection />

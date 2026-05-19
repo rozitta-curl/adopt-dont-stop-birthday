@@ -90,6 +90,14 @@
   margin-bottom: 28px;
 }
 
+.ticketRow {
+  display: contents;
+}
+
+.crownDesktop {
+  display: none;
+}
+
 .ticketWrapper {
   width: 100%;
   margin-bottom: 28px;
@@ -144,4 +152,48 @@
   line-height: 1.6;
   color: var(--color-black);
   margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    overflow: visible;
+  }
+
+  .heading {
+    font-size: 56px;
+  }
+
+  /* Hide top crown on desktop */
+  .crownWrapper {
+    display: none;
+  }
+
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .ticketRow {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .ticketWrapper {
+    width: 480px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+
+  .crownDesktop {
+    display: block;
+    width: 120px;
+    height: auto;
+  }
+
+  .rightContent {
+    padding-top: 80px;
+  }
 }

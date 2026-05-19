@@ -77,3 +77,19 @@
   line-height: 1.65;
   color: var(--color-black);
 }
+
+@media (min-width: 768px) {
+  .section {
+    padding: 48px var(--section-px);
+  }
+
+  .heading {
+    font-size: 52px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}

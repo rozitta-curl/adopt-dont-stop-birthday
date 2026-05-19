@@ -31,11 +31,11 @@ export async function createLiqpayPayment(
   const publicKey = process.env.LIQPAY_PUBLIC_KEY;
   const privateKey = process.env.LIQPAY_PRIVATE_KEY;
 
-  if (!publicKey || !privateKey) {
-    throw new Error(
-      "Liqpay keys not configured. Set LIQPAY_PUBLIC_KEY and LIQPAY_PRIVATE_KEY in .env.local"
-    );
-  }
+  // if (!publicKey || !privateKey) {
+  //   throw new Error(
+  //     "Liqpay keys not configured. Set LIQPAY_PUBLIC_KEY and LIQPAY_PRIVATE_KEY in .env.local"
+  //   );
+  // }
 
   // TODO: Replace with real implementation
   // const payloadJson = JSON.stringify({

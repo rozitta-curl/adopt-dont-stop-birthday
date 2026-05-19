@@ -14,3 +14,33 @@
   height: 32px;
   width: auto;
 }
+
+.navLinks {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    justify-content: space-between;
+  }
+
+  .navLinks {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .navLink {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-black);
+    text-decoration: none;
+  }
+
+  .navLink:hover {
+    opacity: 1;
+  }
+}

@@ -79,3 +79,15 @@ body {
     min-height: 100vh;
   }
 }
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  :root {
+    --section-px: 42px;
+  }
+
+  .site-wrapper {
+    max-width: 1440px;
+    overflow: visible;
+  }
+}
