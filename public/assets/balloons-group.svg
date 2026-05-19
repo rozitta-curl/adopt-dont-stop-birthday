@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <!-- Left balloon (small, salmon) -->
+  <ellipse cx="28" cy="38" rx="20" ry="24" fill="#FF5B5B"/>
+  <ellipse cx="21" cy="26" rx="5" ry="7" fill="white" opacity="0.4"/>
+  <path d="M26 61 C25 68 29 72 28 78" stroke="#1E2456" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Center balloon (yellow, tallest) -->
+  <ellipse cx="60" cy="30" rx="22" ry="26" fill="#F5C81A"/>
+  <ellipse cx="52" cy="17" rx="6" ry="8" fill="white" opacity="0.4"/>
+  <path d="M58 55 C57 65 62 70 60 80" stroke="#1E2456" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Right balloon (small, coral) -->
+  <ellipse cx="92" cy="42" rx="18" ry="22" fill="#FF8080"/>
+  <ellipse cx="86" cy="32" rx="5" ry="7" fill="white" opacity="0.4"/>
+  <path d="M91 63 C90 70 94 74 92 80" stroke="#1E2456" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Strings tied at bottom -->
+  <path d="M28 78 Q44 86 60 80 Q76 86 92 80" stroke="#1E2456" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+</svg>

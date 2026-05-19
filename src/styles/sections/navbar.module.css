@@ -1,0 +1,16 @@
+.nav {
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px var(--section-px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.logoImage {
+  height: 32px;
+  width: auto;
+}

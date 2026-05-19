@@ -1,0 +1,147 @@
+.section {
+  background-color: var(--color-yellow);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.crownWrapper {
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.crownImage {
+  height: auto;
+  display: block;
+}
+
+.inner {
+  padding: 20px var(--section-px) 24px;
+  position: relative;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  background-color: #FF5C5C;
+  color: var(--color-black);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-pill);
+  width: 80px;
+  text-align: center;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.balloonsGroup {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  width: 90px;
+  pointer-events: none;
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(18, 18, 42, 0.5);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--color-navy);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.heartAnchor {
+  position: relative;
+  display: inline-block;
+}
+
+.heartIcon {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 22px;
+  margin-bottom: 2px;
+}
+
+.subheading {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-black);
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+.ticketWrapper {
+  width: 100%;
+  margin-bottom: 28px;
+  line-height: 0;
+}
+
+.ticketImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.knowMoreList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.knowMoreItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.knowMoreHeart {
+  flex-shrink: 0;
+  margin-top: 5px;
+  width: 15px;
+  height: 15px;
+}
+
+.knowMoreTitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.knowMoreText {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-black);
+}
+
+.Register {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-black);
+  margin-top: 8px;
+}

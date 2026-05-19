@@ -1,0 +1,91 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 20px 24px;
+  border-radius: var(--border-radius-pill);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.primary {
+  background-color: var(--color-coral);
+  color: var(--color-white);
+}
+
+.primary:hover {
+  opacity: 0.9;
+}
+
+.outline {
+  background-color: transparent;
+  color: var(--color-black);
+  border: 2px solid rgba(0, 0, 0);
+}
+
+.outline:hover {
+  border-color: var(--color-black);
+}
+
+.outlineDark {
+  background-color: transparent;
+  color: var(--color-navy);
+  border: 2px solid rgba(18, 18, 42, 0.3);
+}
+
+.outlineDark:hover {
+  border-color: var(--color-navy);
+}
+
+.coral {
+  background-color: var(--color-coral);
+  color: var(--color-white);
+}
+
+.coral:hover {
+  opacity: 0.9;
+}
+
+.navy {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.navy:hover {
+  opacity: 0.9;
+}
+
+/* Sizes */
+.sizeMd {
+  padding: 16px 24px;
+  font-size: 15px;
+}
+
+.sizeSm {
+  padding: 12px 20px;
+  font-size: 13px;
+}
+
+.sizeLg {
+  padding: 20px 32px;
+  font-size: 17px;
+}

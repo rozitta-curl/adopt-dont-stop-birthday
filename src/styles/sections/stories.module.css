@@ -1,0 +1,42 @@
+.section {
+  background-color: var(--color-yellow);
+  padding: 0 0 48px;
+}
+
+.header {
+  padding: 0 var(--section-px) 24px;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--color-black);
+}
+
+.scrollArea {
+  gap: 14px;
+  padding-left: 24px;
+  padding-right: 24px;
+  scroll-padding-left: 24px;
+  scroll-padding-right: 24px;
+}
+
+
+.card {
+  width: 160px;
+  height: 220px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: #d4d4d4;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

@@ -1,0 +1,208 @@
+.section {
+  background-color: var(--color-white);
+}
+
+.balloonsRow {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+}
+
+.balloonLeft {
+  position: absolute;
+  left: -20px;
+  top: 8px;
+  width: 140px;
+  height: auto;
+}
+
+.balloonRight {
+  position: absolute;
+  right: -24px;
+  top: 4px;
+  width: 130px;
+  height: auto;
+}
+
+.header {
+  padding: 0 var(--section-px);
+  margin-bottom: 8px;
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(18, 18, 42, 0.45);
+  margin-bottom: 10px;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--color-navy);
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.subheading {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(18, 18, 42, 0.65);
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  background-color: #FFE227;
+  color: var(--color-black);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-pill);
+  width: 150px;
+  text-align: center;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+/* === Compact horizontal timeline === */
+.compactTimeline {
+  padding: 0;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.compactScroll {
+  padding: 8px var(--section-px) 24px;
+  scroll-padding-left: var(--section-px);
+  gap: 0;
+  align-items: flex-start;
+}
+
+.compactItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 333px;
+  flex-shrink: 0;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.compactRail {
+  width: calc(100% + 24px);
+  margin-left: -12px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.compactDot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid var(--color-navy);
+  flex-shrink: 0;
+}
+
+.compactLine {
+  flex: 1;
+  height: 2px;
+  background-color: rgba(18, 18, 42, 0.2);
+}
+
+.compactYear {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: 8px;
+}
+
+.compactLabel {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 10px;
+}
+
+.compactDesc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-black);
+}
+
+/* === Full detailed timeline (screen 2) === */
+.fullSection {
+  background-color: var(--color-white);
+  padding: 40px 0;
+  border-top: 1px solid rgba(18, 18, 42, 0.08);
+}
+
+.fullLabel {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(18, 18, 42, 0.4);
+  padding: 0 var(--section-px);
+  margin-bottom: 24px;
+}
+
+.fullScroll {
+  padding: 16px var(--section-px) 8px;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.fullCard {
+  width: 260px;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-cream);
+  border: 1.5px solid rgba(18, 18, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fullCardYear {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-coral);
+}
+
+.fullCardTitle {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.3;
+}
+
+.fullCardDesc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(18, 18, 42, 0.7);
+}
+
+/* Timeline connector line in full cards view */
+.timelineRail {
+  height: 3px;
+  margin: 0 var(--section-px) 20px;
+  background: linear-gradient(90deg, var(--color-coral) 0%, var(--color-yellow) 50%, var(--color-navy) 100%);
+  border-radius: 2px;
+}

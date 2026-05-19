@@ -1,0 +1,64 @@
+.page {
+  background-color: var(--color-cream);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px var(--section-px);
+  text-align: center;
+}
+
+.icon {
+  font-size: 72px;
+  margin-bottom: 24px;
+  line-height: 1;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-navy);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(18, 18, 42, 0.65);
+  max-width: 320px;
+  margin: 0 auto 36px;
+}
+
+.orderId {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(18, 18, 42, 0.4);
+  margin-bottom: 36px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.divider {
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: var(--color-yellow);
+  margin: 24px auto;
+}
+
+.emailNote {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(18, 18, 42, 0.5);
+  line-height: 1.5;
+}

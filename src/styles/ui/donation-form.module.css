@@ -1,0 +1,122 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Tab switcher */
+.tabs {
+  display: flex;
+  border: 2px solid var(--color-yellow);
+  border-radius: var(--border-radius-pill);
+  padding: 4px;
+  gap: 4px;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  border-radius: var(--border-radius-pill);
+  border: none;
+  background: transparent;
+  color: var(--color-yellow);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab.tabActive {
+  background-color: var(--color-yellow);
+  color: var(--color-navy);
+}
+
+/* Amount grids */
+.amountsGrid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.amountsGrid2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.amountBtn {
+  padding: 14px 8px;
+  border-radius: var(--border-radius-pill);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.amountBtn.selected {
+  border-color: var(--color-yellow);
+  background-color: var(--color-yellow);
+  color: var(--color-navy);
+}
+
+/* Pill inputs */
+.pillInput {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: var(--border-radius-pill);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  outline: none;
+  text-align: center;
+  transition: border-color 0.15s ease;
+}
+
+.pillInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+}
+
+.pillInput:focus {
+  border-color: var(--color-yellow);
+}
+
+.pillInputSelected {
+  background-color: var(--color-yellow);
+  border-color: var(--color-yellow);
+  color: var(--color-navy);
+}
+
+.pillInputSelected::placeholder {
+  color: var(--color-navy);
+}
+
+.submitWrapper {
+  margin-top: 12px; /* 12px gap + 12px = 24px total before button */
+}
+
+.errorMsg {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #ff8080;
+}
+
+.itemsPlaceholder {
+  padding: 32px 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+}

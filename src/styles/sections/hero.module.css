@@ -1,0 +1,65 @@
+.section {
+  background-color: var(--color-yellow);
+  padding: 0;
+  position: relative;
+  overflow: visible;
+}
+
+.inner {
+  padding: 36px var(--section-px) 0;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--color-black);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.accentBadge {
+  display: inline-block;
+  background-color: var(--color-light-pink);
+  color: var(--color-white);
+  padding: 5px 15px 9px;
+  border-radius: 14px;
+  transform: rotate(-5deg);
+  transform-origin: left center;
+  margin: 4px 0 6px;
+  line-height: 1;
+  font-size: 35px;
+  margin-left: 0px;
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-black);
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.ctaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.subheading {
+   font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--color-black);
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 2;
+}

@@ -1,0 +1,36 @@
+.section {
+  background-color: var(--color-light-black);
+  padding: 24px var(--section-px);
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  background-color: var(--color-light-pink);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--border-radius-pill);
+  margin-bottom: 16px;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--color-yellow);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-yellow);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}

@@ -1,0 +1,79 @@
+.section {
+  background-color: var(--color-white);
+  padding: 0 0 0;
+}
+
+.header {
+  padding: 0 var(--section-px);
+  margin-bottom: 0;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  background-color: #FF5C5C;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-pill);
+  width: 190px;
+  text-align: center;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-black);
+}
+
+.garlandWrapper {
+  width: 100%;
+  line-height: 0;
+  margin-top: 20px;
+}
+
+.garlandImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.scrollArea {
+  padding: 20px var(--section-px) var(--section-py);
+  scroll-padding-left: var(--section-px);
+  gap: 12px;
+}
+
+.card {
+  width: 160px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.photoWrapper {
+  position: relative;
+  width: 160px;
+  height: 200px;
+}
+
+.photo {
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}

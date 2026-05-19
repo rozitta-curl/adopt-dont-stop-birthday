@@ -1,0 +1,71 @@
+.section {
+  background-color: var(--color-white);
+  padding: 24px var(--section-px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.garlandWrapper {
+  line-height: 0;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.garlandImage {
+  height: auto;
+  display: block;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-black);
+  margin-bottom: 32px;
+}
+
+.socialRow {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-pill);
+  border: 1.5px solid rgba(18, 18, 42, 0.15);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-navy);
+  transition: background-color 0.2s ease;
+}
+
+.socialLink:hover {
+  background-color: rgba(18, 18, 42, 0.06);
+}
+
+.heartDecor {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  opacity: 0.4;
+  pointer-events: none;
+}
