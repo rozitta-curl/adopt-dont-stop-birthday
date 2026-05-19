@@ -44,6 +44,12 @@
   gap: 16px;
 }
 
+@media (min-width: 768px) {
+  .infoCard {
+    width: 800px;
+  }
+}
+
 .infoTitle {
   font-family: var(--font-heading);
   font-size: 20px;

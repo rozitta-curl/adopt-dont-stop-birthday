@@ -32,8 +32,8 @@ export default function HeroSection() {
               <Image
                 src={`/stories/${file}`}
                 alt={`Istorія порятунку ${i + 1}`}
-                width={260}
-                height={300}
+                width={300}
+                height={360}
                 className={styles.storyImage}
               />
             </div>
