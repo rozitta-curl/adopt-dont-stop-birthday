@@ -75,6 +75,10 @@
   margin-bottom: 28px;
 }
 
+.desktopImageBlock {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .section {
     display: grid;
@@ -94,8 +98,16 @@
     line-height: 1.0;
   }
 
-  .leftContent {
-    position: sticky;
-    top: 80px;
+  .desktopImageBlock {
+    display: block;
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    min-height: 600px;
+    align-self: stretch;
+  }
+
+  .desktopImage {
+    object-fit: cover;
   }
 }

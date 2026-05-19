@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import DonationForm from "@/components/ui/DonationForm";
 import styles from "@/styles/sections/donation.module.css";
 
@@ -27,17 +28,31 @@ export default function DonationSection() {
         </button>
       </div>
 
-      <div className={styles.leftContent}>
-        <div className={styles.badge}>Поздоровити</div>
-        <h2 className={styles.heading}>Привітайте</h2>
-        <p className={styles.subtext}>
-          Найкращий подарунок – це впевненість в тому, що в хвостиків є і буде
-          все необхідне. Поздоровте нас копіечкою або подаруйте необхідні речі.
-        </p>
+      {/* Left column: text + form */}
+      <div className={styles.leftColumn}>
+        <div className={styles.leftContent}>
+          <div className={styles.badge}>Поздоровити</div>
+          <h2 className={styles.heading}>Привітайте</h2>
+          <p className={styles.subtext}>
+            Найкращий подарунок – це впевненість в тому, що в хвостиків є і буде
+            все необхідне. Поздоровте нас копіечкою або подаруйте необхідні речі.
+          </p>
+        </div>
+
+        <div className={styles.rightContent}>
+          <DonationForm tab={tab} />
+        </div>
       </div>
 
-      <div className={styles.rightContent}>
-        <DonationForm tab={tab} />
+      {/* Right column: desktop image — hidden on mobile */}
+      <div className={styles.desktopImageBlock}>
+        <Image
+          src="/animals/Donate-desktop.png"
+          alt=""
+          fill
+          className={styles.desktopImage}
+          aria-hidden="true"
+        />
       </div>
     </section>
   );

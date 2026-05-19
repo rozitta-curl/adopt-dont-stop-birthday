@@ -3,12 +3,25 @@ import Image from "next/image";
 import NavBar from "@/components/sections/NavBar";
 import styles from "@/styles/pages/thank-you.module.css";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Дякуємо! — Adopt Don't Stop",
   description: "Ваш донат отримано. Дякуємо за підтримку!",
 };
 
+const THANK_YOU_IMAGES = [
+  "/assets/Thank-you.svg",
+  "/assets/Thank-you1.svg",
+  "/assets/Thank-you2.svg",
+  "/assets/Thank-you3.svg",
+  "/assets/Thank-you4.svg",
+  "/assets/Thank-you5.svg",
+];
+
 export default function ThankYouPage() {
+  const image = THANK_YOU_IMAGES[Math.floor(Math.random() * THANK_YOU_IMAGES.length)];
+
   return (
     <>
       <NavBar />
@@ -18,7 +31,7 @@ export default function ThankYouPage() {
 
           <div className={styles.catHeartWrapper}>
             <Image
-              src="/assets/Thank-you.svg"
+              src={image}
               alt="Кіт у серці"
               width={320}
               height={300}
