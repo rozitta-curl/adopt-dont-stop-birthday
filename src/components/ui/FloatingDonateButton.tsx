@@ -38,9 +38,13 @@ export default function FloatingDonateButton() {
     };
   }, []);
 
+  const scrollToDonation = () => {
+    document.getElementById("donation")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className={`${styles.wrapper} ${show ? styles.visible : ""}`}>
-      <Button variant="primary" href="#donation">
+      <Button variant="primary" onClick={scrollToDonation}>
         Поздоровити донатом 💛
       </Button>
     </div>
