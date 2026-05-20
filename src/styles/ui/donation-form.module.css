@@ -206,3 +206,11 @@
   color: var(--color-black);
   line-height: 1.5;
 }
+
+
+.itemLink {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-yellow);
+    text-decoration: underline;
+}

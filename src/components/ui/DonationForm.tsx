@@ -7,14 +7,18 @@ import Button from "@/components/ui/Button";
 import styles from "@/styles/ui/donation-form.module.css";
 
 const TELEGRAM_LINK = "https://t.me/adopt_hello";
+const EXCEL_LINK = "https://docs.google.com/spreadsheets/d/1qxlXyphI7e5mNHowWUqttkg8TeIhdW3Vzem2najeWfk/edit?usp=sharing";
 
 const WISHLIST = [
-  "Вологий корм (паштети Gourme / Mau Paw)",
-  "Іграшки (м'ячики, вудочки, пір'їнки)",
-  "Лежанки, дряпки, котобудиночки",
-  "Фонтанчик питний",
-  "Залізні миски для їжі",
-  "Паста Мальтсофт (для виведення шерсті)",
+  "Пральна машинка",
+  "Машинка для сушки речей",
+  "Очисна система для води",
+  "Сітки антикішки на вікна",
+  "Металопластикові двері для кімнат з тваринками",
+  "Нові надійні вхідні двері",
+  "Великі міцні клітки XL від 1.5м",
+  "Іграшки мʼякі та для гризіння",
+  "Смаколики",
 ];
 
 const PRESET_AMOUNTS = [100, 200, 500, 1000, 2000];
@@ -203,6 +207,12 @@ export default function DonationForm({ tab }: Props) {
               </li>
             ))}
           </ul>
+
+          <div className={styles.itemLink}>
+            <a href={EXCEL_LINK} target="_blank" rel="noopener noreferrer">
+              Детальний список потрібних речей
+            </a>
+          </div>
 
           {/* Delivery card */}
           <div className={styles.deliveryCard}>
