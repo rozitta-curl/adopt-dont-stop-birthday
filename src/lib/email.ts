@@ -53,7 +53,7 @@ export async function notifyAboutNew(data: OrderData, payload: unknown) {
       userMsg = {
         to: data.email,
         from: FROM_ADDRESS,
-        subject: `Твоє тепло вже в дорозі!`,
+        subject: `Дякую за подарунок!`,
         html: userTemplate(),
       };
     }
