@@ -5,7 +5,7 @@ const STATS = [
   { number: "506", label: "тварин врятовано з вулиці", colorClass: styles.statPurple },
   { number: "347", label: "хвостів знайшло нові домівки", colorClass: styles.statGreen },
   { number: "3476", label: "вуличних тварин стерилізовано", colorClass: styles.statOrange },
-  { number: "45", label: "тварин евакуйовано", colorClass: styles.statBlue },
+  { number: "606", label: "тварин евакуйовано", colorClass: styles.statBlue },
 ];
 
 export default function StatsSection() {
