@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Step 4: Handle successful payment
-  if (status === "success" || status === "sandbox") {
+  if (status === "success" || status === "subscribed" || status === "sandbox") {
     // Save subscription to NeonDB
     if (orderData.paymentType === "monthly") {
       try {
