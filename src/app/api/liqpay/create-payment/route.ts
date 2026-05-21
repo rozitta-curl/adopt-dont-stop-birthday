@@ -23,7 +23,11 @@ export async function POST(req: NextRequest) {
     }
 
     const orderId = `ads-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? req.nextUrl.origin;
+    const forwardedHost = req.headers.get("x-forwarded-host");
+    const forwardedProto = req.headers.get("x-forwarded-proto") ?? "https";
+    const baseUrl =
+      process.env.NEXT_PUBLIC_APP_URL ??
+      (forwardedHost ? `${forwardedProto}://${forwardedHost}` : req.nextUrl.origin);
 
     const payment = createLiqpayPayment({
       amount,
