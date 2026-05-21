@@ -1,0 +1,237 @@
+<mjml>
+  <mj-body>
+    <mj-section background-color="#FFE227" padding-bottom="0px">
+      <mj-column>
+
+        <mj-image width="384px" src="https://static.cdn.adoptdontstop.com/emails/bday-2026/logo-bday.png" padding-bottom="0"></mj-image>
+
+        <mj-text align="center" font-family="Arial">
+          Творимо майбутнє, в якому немає безпритульних тварин
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#FFE227" padding-bottom="0px" padding-top="0px">
+      <mj-column>
+
+        <mj-image width="51px" src="https://static.cdn.adoptdontstop.com/emails/bday-2026/decor-top.png" padding-bottom="0"></mj-image>
+
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#FFE227" padding-bottom="0px">
+      <mj-column>
+
+        <mj-text align="center" font-size="30px" font-weight="bold" font-family="Arial">
+          Дякую за подарунок!
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#FFE227" padding-bottom="0px">
+      <mj-column>
+
+        <mj-text align="left" font-size="18px" padding-bottom="10px" font-family="Arial">
+          Твій донат допомагає притулку зустріти 7-річчя. Завдяки тобі прямо зараз у цих стінах хтось солодко засинає ситим.
+        </mj-text>
+
+        <mj-text align="left" font-size="18px" padding-bottom="10px" font-family="Arial">
+          Світ швидко змінюється. Ми не знаємо, яким буде твій наступний рік, де ти будеш і що відчуватимеш. Але ми точно знаємо: прямо зараз ти – чудова людина, яка рятує життя.
+        </mj-text>
+
+        <mj-text align="left" font-size="18px" font-family="Arial">
+          Ось твоє "Дзеркало доброти". Пообіцяй нам подивитися на нього, коли стане сумно або здаватиметься, що нічого не вдається. Ти вже змінив цей світ на краще.
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#FFE227" padding="10px 0 0 0">
+      <mj-column width="100%" vertical-align="middle">
+
+        <mj-image src="https://static.cdn.adoptdontstop.com/emails/bday-2026/hero.png" padding="0"></mj-image>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#FFFFFF" padding-bottom="0px">
+      <mj-column>
+
+        <mj-text align="center" font-size="26px" font-weight="bold">Твій донат – частина ось цього всього</mj-text>
+
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#FFFFFF" padding-bottom="0px" padding-top="0px">
+      <mj-column padding="5px">
+
+        <mj-raw>
+          <div style="background-color:#BDB8FF; border-radius: 16px; border: 2px solid #000; padding: 24px 18px; height: 100%;">
+            <span style="font-size: 36px; font-weight: bold; font-family: Ubuntu, Helvetica, Arial, sans-serif;">
+              506
+            </span>
+            <br />
+            <span style="font-size: 14px; font-family: Ubuntu, Helvetica, Arial, sans-serif;">
+              тварин врятовано з вулиці
+            </span>
+          </div>
+        </mj-raw>
+
+      </mj-column>
+
+      <mj-column padding="5px">
+
+        <mj-raw>
+          <div style="background-color:#FF9F43; border-radius: 16px; border: 2px solid #000; padding: 24px 18px; height: 100%;">
+            <span style="font-size: 36px; font-weight: bold; font-family: Ubuntu, Helvetica, Arial, sans-serif;">
+              3476
+            </span>
+            <br />
+            <span style="font-size: 14px; font-family: Ubuntu, Helvetica, Arial, sans-serif;">
+              вуличних тварин стерилізовано
+            </span>
+          </div>
+        </mj-raw>
+
+      </mj-column>
+
+      <mj-column padding="5px">
+
+        <mj-raw>
+          <div style="background-color:#4B7CEC; border-radius: 16px; border: 2px solid #000; padding: 24px 18px; height: 100%;">
+            <span style="font-size: 36px; font-weight: bold; font-family: Ubuntu, Helvetica, Arial, sans-serif;">
+              45
+            </span>
+            <br />
+            <span style="font-size: 14px; font-family: Ubuntu, Helvetica, Arial, sans-serif;">
+              тварин евакуйовано<br /><br />
+            </span>
+          </div>
+        </mj-raw>
+
+      </mj-column>
+
+      <mj-column padding="5px">
+
+        <mj-raw>
+          <div style="background-color:#2ECC71; border-radius: 16px; border: 2px solid #000; padding: 24px 18px; height: 100%;">
+            <span style="font-size: 36px; font-weight: bold; font-family: Ubuntu, Helvetica, Arial, sans-serif;">
+              347
+            </span>
+            <br />
+            <span style="font-size: 14px; font-family: Ubuntu, Helvetica, Arial, sans-serif;">
+              хвостів знайшло нові домівки
+            </span>
+          </div>
+        </mj-raw>
+
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#FFFFFF" padding-bottom="0px" padding-top="0px">
+      <mj-column>
+
+        <mj-text align="center" font-size="18px">Жодна з цих цифр не з'явилась без людей як ти.</mj-text>
+
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#FFFFFF" padding-bottom="0px" padding-top="0px">
+      <mj-column>
+
+        <mj-image width="auto" src="https://static.cdn.adoptdontstop.com/emails/bday-2026/devider-1.png" padding="0"></mj-image>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#BDB8FF" padding="10px 0">
+      <mj-column>
+
+        <mj-image src="https://static.cdn.adoptdontstop.com/emails/bday-2026/crown.png" padding="0" align="center" width="71px"></mj-image>
+
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#BDB8FF" padding="0px">
+      <mj-column>
+
+        <mj-text align="center" font-size="26px" font-weight="bold">Якщо вийде – приходь на свято!</mj-text>
+
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#BDB8FF" padding-left="20px" padding-right="20px">
+      <mj-column border="4px solid #fff" border-radius="16px" background-color="#BDB8FF">
+
+        <mj-text align="left" font-family="Arial" font-size="18px" padding-bottom="0px" padding-top="20px">
+          <img src="https://static.cdn.adoptdontstop.com/emails/bday-2026/list-1.png" alt="" />
+          <strong>Коли:</strong>
+          <span>23 травня, п'ятниця</span>
+        </mj-text>
+
+        <mj-text align="left" font-family="Arial" font-size="18px" padding-bottom="0px">
+          <img src="https://static.cdn.adoptdontstop.com/emails/bday-2026/list-1.png" alrt="" />
+          <strong>О котрій:</strong>
+          <span>з 12:00 — і до останнього хвостика</span>
+        </mj-text>
+
+        <mj-text align="left" font-family="Arial" font-size="18px" padding-bottom="20px">
+          <img src="https://static.cdn.adoptdontstop.com/emails/bday-2026/list-1.png" alrt="" />
+          <strong>Де:</strong>
+          <span>вул. Амосова, 9</span>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#BDB8FF">
+      <mj-column background-color="#BDB8FF">
+
+        <mj-text align="left" font-family="Arial" font-size="18px" padding-bottom="0px">
+          <img src="https://static.cdn.adoptdontstop.com/emails/bday-2026/list-2.png" alt="" />
+          <strong>Екскурсія новим приміщенням</strong>
+          <p style="padding-left: 26px">Покажемо де ми тепер живемо — і чому нам тут добре</p>
+        </mj-text>
+
+        <mj-text align="left" font-family="Arial" font-size="18px" padding-bottom="0px">
+          <img src="https://static.cdn.adoptdontstop.com/emails/bday-2026/list-2.png" alt="" />
+          <strong>Пікнік просто неба</strong>
+          <p style="padding-left: 26px">Їжа, напої, гарне товариство і (можливо) сонце</p>
+        </mj-text>
+
+        <mj-text align="left" font-family="Arial" font-size="18px" padding-bottom="0px">
+          <img src="https://static.cdn.adoptdontstop.com/emails/bday-2026/list-2.png" alt="" />
+          <strong>Знайомство з мешканцями</strong>
+          <p style="padding-left: 26px">Я і мої друзі будемо раді познайомитись особисто. Обійми вітаються!</p>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#FFFFFF" padding-bottom="0px" padding-top="0px">
+      <mj-column>
+
+        <mj-image width="auto" src="https://static.cdn.adoptdontstop.com/emails/bday-2026/devider-2.png" padding="0"></mj-image>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#FFE227" padding-bottom="0px" padding-top="0px">
+      <mj-column>
+
+        <mj-image width="51px" src="https://static.cdn.adoptdontstop.com/emails/bday-2026/decor-bottom.png" padding-bottom="0"></mj-image>
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#FFE227" text-align="center" padding-top="0">
+      <mj-group>
+        <mj-column>
+
+          <mj-social icon-size="34px" icon-padding="5px">
+            <mj-social-element src="https://media.cdn.adoptdontstop.com/emails/email-footer-facebook.png" href="https://facebook.com/adoptdontstop"></mj-social-element>
+            <mj-social-element src="https://media.cdn.adoptdontstop.com/emails/email-footer-instagram.png" href="https://instagram.com/adopt_dont_stop"></mj-social-element>
+          </mj-social>
+
+        </mj-column>
+      </mj-group>
+    </mj-section>
+
+  </mj-body>
+</mjml>

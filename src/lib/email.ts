@@ -1,75 +1,82 @@
-/**
- * Email Sending Placeholder
- *
- * Architecture:
- * - Email templates are authored in MJML by a dev, then compiled to HTML.
- * - The compiled HTML string is inserted as a template literal here.
- * - Placeholders like {{recipientName}}, {{donationAmount}}, {{orderId}}
- *   are replaced at send time.
- *
- * To connect a real email provider:
- * 1. Choose a provider (e.g., Resend, SendGrid, Nodemailer+SMTP).
- * 2. Add credentials to .env.local:
- *    EMAIL_FROM=noreply@adoptdontstop.org
- *    EMAIL_PROVIDER_API_KEY=your_api_key
- * 3. Implement sendEmail() below using the provider SDK.
- * 4. Insert the compiled MJML→HTML template in DONATION_THANK_YOU_TEMPLATE.
- *
- * See: https://mjml.io/ for MJML documentation.
- */
+import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
+import type { EmailTemplateData, OrderData } from "@/types";
+import { adminTemplate, userTemplate } from "./email-templates";
 
-import type { EmailTemplateData } from "@/types";
+const sesClient = new SESClient({
+  region: process.env.AWS_REGION!,
+  credentials: {
+    accessKeyId: process.env.SES_ACCESS_KEY!,
+    secretAccessKey: process.env.SES_SECRET_KEY!,
+  },
+});
 
-/**
- * Donation thank-you email HTML template.
- *
- * TODO: Dev inserts the compiled MJML→HTML string here.
- * Placeholders in the template:
- *   {{recipientName}}   – donor's name (optional)
- *   {{donationAmount}}  – donation amount in UAH
- *   {{orderId}}         – payment order ID
- */
-const DONATION_THANK_YOU_TEMPLATE = `
-<!-- TODO: Insert compiled MJML→HTML template here -->
-<html>
-  <body>
-    <h1>Дякуємо за ваш донат!</h1>
-    <p>Дякуємо{{#if recipientName}}, {{recipientName}}{{/if}}!</p>
-    <p>Ваш донат на суму <strong>{{donationAmount}} грн</strong> отримано.</p>
-    <p>Номер замовлення: {{orderId}}</p>
-    <p>З любов'ю, Adopt Don't Stop</p>
-  </body>
-</html>
-`;
+const FROM_ADDRESS = process.env.SES_FROM_EMAIL!;
 
-function renderTemplate(template: string, data: EmailTemplateData): string {
-  return template
-    .replace(/{{recipientName}}/g, data.recipientName ?? "")
-    .replace(/{{donationAmount}}/g, String(data.donationAmount))
-    .replace(/{{orderId}}/g, data.orderId);
-}
+const createSendEmailCommand = (
+  toAddress: string,
+  subject: string,
+  body: string,
+) => {
+  return new SendEmailCommand({
+    Destination: {
+      ToAddresses: [toAddress],
+    },
+    Message: {
+      Body: {
+        Html: {
+          Charset: "UTF-8",
+          Data: body,
+        },
+      },
+      Subject: {
+        Charset: "UTF-8",
+        Data: subject,
+      },
+    },
+    Source: FROM_ADDRESS,
+    ReplyToAddresses: [FROM_ADDRESS],
+  });
+};
 
-/**
- * Sends the donation confirmation email to the user.
- * Currently a placeholder — implement with your email provider.
- */
-export async function sendDonationThankYouEmail(
-  data: EmailTemplateData
-): Promise<void> {
-  const html = renderTemplate(DONATION_THANK_YOU_TEMPLATE, data);
+export async function notifyAboutNew(data: OrderData, payload: unknown) {
+  try {
+    const adminMsg = {
+      to: "info@adoptdontstop.com",
+      from: FROM_ADDRESS,
+      subject: "Нова пожертва на День народження Adopt Don't Stop!",
+      html: adminTemplate(data, payload),
+    };
 
-  // TODO: Replace with real email provider
-  // Example using Resend:
-  // const resend = new Resend(process.env.EMAIL_PROVIDER_API_KEY);
-  // await resend.emails.send({
-  //   from: process.env.EMAIL_FROM!,
-  //   to: data.recipientEmail,
-  //   subject: "Дякуємо за підтримку Adopt Don't Stop!",
-  //   html,
-  // });
+    let userMsg;
 
-  console.log(
-    `[EMAIL PLACEHOLDER] Would send thank-you email to: ${data.recipientEmail}`,
-    { orderId: data.orderId, amount: data.donationAmount, htmlLength: html.length }
-  );
+    if (data.email) {
+      userMsg = {
+        to: data.email,
+        from: FROM_ADDRESS,
+        subject: `Твоє тепло вже в дорозі!`,
+        html: userTemplate(),
+      };
+    }
+
+    try {
+      await sesClient.send(
+        createSendEmailCommand(
+          adminMsg.to,
+          `${adminMsg.subject} (AWS SES)`,
+          adminMsg.html,
+        ),
+      );
+
+      if (userMsg) {
+        await sesClient.send(
+          createSendEmailCommand(userMsg.to, userMsg.subject, userMsg.html),
+        );
+      }
+    } catch (error) {
+      console.error("Error sending email via SES:", error);
+    }
+  } catch (error) {
+    console.error("Error in notifyAboutNew:", error);
+    throw new Error("Failed to send notification emails");
+  }
 }

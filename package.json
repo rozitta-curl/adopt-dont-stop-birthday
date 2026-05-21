@@ -9,6 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.1050.0",
+    "@neondatabase/serverless": "^1.1.0",
+    "@upstash/redis": "^1.38.0",
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"

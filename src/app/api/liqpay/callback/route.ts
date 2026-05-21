@@ -1,48 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyLiqpayCallback } from "@/lib/liqpay";
-import { sendDonationThankYouEmail } from "@/lib/email";
+import { getOrder, deleteOrder } from "@/lib/redis";
+import { insertSubscription } from "@/lib/neon";
+import { notifyAboutNew } from "@/lib/email";
 
-/**
- * POST /api/liqpay/callback
- *
- * Liqpay server-to-server payment result callback.
- * Liqpay sends this after every payment (success or failure).
- *
- * Body (application/x-www-form-urlencoded):
- *   data      – Base64-encoded JSON with payment result
- *   signature – SHA1 signature to verify authenticity
- *
- * Architecture:
- * 1. Verify the signature using LIQPAY_PRIVATE_KEY.
- * 2. Decode the `data` field to get payment status, order_id, amount, etc.
- * 3. If status === "success" or "sandbox":
- *    a. Retrieve the user email from the order (stored in payment description
- *       or a DB/KV store keyed by order_id — implement as needed).
- *    b. Call sendDonationThankYouEmail() with the donor's details.
- *
- * TODO:
- * - Implement order storage (e.g., Redis, Vercel KV, or DB) to persist
- *   user email between create-payment and callback.
- * - Replace verifyLiqpayCallback stub with real crypto verification.
- */
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
   const data = formData.get("data") as string | null;
   const signature = formData.get("signature") as string | null;
 
   if (!data || !signature) {
-    return NextResponse.json(
-      { error: "Missing data or signature" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Missing data or signature" }, { status: 400 });
   }
 
-  // Step 1: Verify signature
+  // Step 1: Verify signature — reject in production if invalid
   const isValid = verifyLiqpayCallback(data, signature);
   if (!isValid) {
-    console.warn("[liqpay/callback] Signature verification failed (placeholder).");
-    // In production: return 400 if signature is invalid.
-    // For now, we continue so the flow can be tested end-to-end.
+    console.error("[liqpay/callback] Invalid signature — rejecting callback.");
+    return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
   }
 
   // Step 2: Decode payment data
@@ -53,37 +28,52 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid data payload" }, { status: 400 });
   }
 
-  console.log("[liqpay/callback] Payment data:", paymentData);
-
   const status = paymentData.status as string | undefined;
   const orderId = paymentData.order_id as string | undefined;
-  const amount = paymentData.amount as number | undefined;
+  const paymentId = paymentData.payment_id != null
+    ? String(paymentData.payment_id)
+    : null;
 
-  // Step 3: Handle successful payment
+  if (!orderId) {
+    return NextResponse.json({ error: "Missing order_id" }, { status: 400 });
+  }
+
+  // Step 3: Retrieve order context from Redis
+  const orderData = await getOrder(orderId);
+  if (!orderData) {
+    console.warn("[liqpay/callback] Order not found in Redis for orderId:", orderId);
+    // Still return 200 so LiqPay doesn't retry indefinitely
+    return NextResponse.json({ received: true });
+  }
+
+  // Step 4: Handle successful payment
   if (status === "success" || status === "sandbox") {
-    // TODO: Retrieve user email from order storage by orderId
-    // const userEmail = await getOrderEmail(orderId);
-    const userEmail: string | null = null; // placeholder
-
-    if (userEmail && orderId && amount) {
+    // Save subscription to NeonDB
+    if (orderData.paymentType === "monthly") {
       try {
-        await sendDonationThankYouEmail({
-          recipientEmail: userEmail,
-          donationAmount: amount,
+        await insertSubscription({
+          email: orderData.email,
+          amount: orderData.amount,
           orderId,
+          paymentId,
+          status: status ?? "unknown",
+          liqpayData: paymentData,
         });
       } catch (err) {
-        console.error("[liqpay/callback] Failed to send email:", err);
-        // Do not fail the callback response — email is best-effort
+        console.error("[liqpay/callback] Failed to insert subscription:", err);
       }
-    } else {
-      console.warn(
-        "[liqpay/callback] Email not sent — userEmail not found for orderId:",
-        orderId
-      );
+    }
+
+    // Send thank-you email
+    try {
+      await notifyAboutNew(orderData, paymentData);
+    } catch (err) {
+      console.error("[liqpay/callback] Failed to send email:", err);
     }
   }
 
-  // Liqpay expects a 200 response to confirm receipt
+  // Step 5: Clean up Redis entry
+  await deleteOrder(orderId);
+
   return NextResponse.json({ received: true });
 }

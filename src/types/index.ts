@@ -1,7 +1,16 @@
+export type PaymentType = "once" | "monthly";
+
 export interface DonationFormData {
   amount: number;
   customAmount?: string;
   email: string;
+  paymentType: PaymentType;
+}
+
+export interface OrderData {
+  email: string;
+  amount: number;
+  paymentType: PaymentType;
 }
 
 export interface LiqpayPaymentParams {
@@ -11,6 +20,7 @@ export interface LiqpayPaymentParams {
   resultUrl: string;
   serverUrl: string;
   userEmail: string;
+  paymentType: PaymentType;
 }
 
 export interface LiqpayPaymentResponse {

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import styles from "@/styles/ui/donation-form.module.css";
@@ -28,7 +27,6 @@ interface Props {
 }
 
 export default function DonationForm({ tab }: Props) {
-  const router = useRouter();
   const [paymentType, setPaymentType] = useState<"monthly" | "once">("monthly");
   const [selectedAmount, setSelectedAmount] = useState<number | null>(200);
   const [customAmount, setCustomAmount] = useState("");
@@ -57,7 +55,7 @@ export default function DonationForm({ tab }: Props) {
       const res = await fetch("/api/liqpay/create-payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: finalAmount, email }),
+        body: JSON.stringify({ amount: finalAmount, email, paymentType }),
       });
 
       if (!res.ok) {
@@ -65,27 +63,25 @@ export default function DonationForm({ tab }: Props) {
         throw new Error(data.error ?? "Помилка при створенні платежу.");
       }
 
-      // const { data, signature, checkoutUrl } = await res.json();
+      const { data, signature, checkoutUrl } = await res.json();
 
-      // const form = document.createElement("form");
-      // form.method = "POST";
-      // form.action = checkoutUrl;
-      // form.style.display = "none";
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = checkoutUrl;
+      form.style.display = "none";
 
-      // const dataInput = document.createElement("input");
-      // dataInput.name = "data";
-      // dataInput.value = data;
-      // form.appendChild(dataInput);
+      const dataInput = document.createElement("input");
+      dataInput.name = "data";
+      dataInput.value = data;
+      form.appendChild(dataInput);
 
-      // const sigInput = document.createElement("input");
-      // sigInput.name = "signature";
-      // sigInput.value = signature;
-      // form.appendChild(sigInput);
+      const sigInput = document.createElement("input");
+      sigInput.name = "signature";
+      sigInput.value = signature;
+      form.appendChild(sigInput);
 
-      // document.body.appendChild(form);
-      // form.submit();
-
-      router.push("/thank-you");
+      document.body.appendChild(form);
+      form.submit();
     } catch (err) {
       setError(
         err instanceof Error ? err.message : "Щось пішло не так. Спробуйте пізніше."
